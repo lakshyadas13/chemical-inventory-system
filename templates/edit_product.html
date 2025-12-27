@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Edit Product</h3>
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Product Name</label>
+        <input class="form-control" name="name" value="{{ product.name }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Unit</label>
+        <select class="form-control" name="unit">
+            <option {% if product.unit == "KG" %}selected{% endif %}>KG</option>
+            <option {% if product.unit == "MT" %}selected{% endif %}>MT</option>
+            <option {% if product.unit == "Litre" %}selected{% endif %}>Litre</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary">Update</button>
+    <a href="/" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

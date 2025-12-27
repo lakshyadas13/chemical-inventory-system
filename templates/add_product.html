@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Add Product</h3>
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Product Name</label>
+        <input class="form-control" name="name" required>
+    </div>
+
+    <div class="mb-3">
+        <label>CAS Number</label>
+        <input class="form-control" name="cas" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Unit</label>
+        <select class="form-control" name="unit">
+            <option>KG</option>
+            <option>MT</option>
+            <option>Litre</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary">Add</button>
+</form>
+
+{% endblock %}
