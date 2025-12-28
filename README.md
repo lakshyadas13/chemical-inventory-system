@@ -25,7 +25,7 @@ The system supports authenticated access, real-time stock updates, and maintains
 **Backend**: Flask (Python)
 **Database:**
   - MySQL (local development)
-  - SQLite (cloud deployment)
+  - SQLite (cloud deployment)  
 **ORM**: SQLAlchemy
 **Frontend**: HTML, Jinja2, Bootstrap 5
 **Deployment**: Render + Gunicorn
