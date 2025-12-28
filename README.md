@@ -26,7 +26,7 @@ The system supports authenticated access, real-time stock updates, and maintains
 **Database:**
   - MySQL (local development)
   - SQLite (cloud deployment)
-  - ORM: SQLAlchemy
+**ORM**: SQLAlchemy
 **Frontend**: HTML, Jinja2, Bootstrap 5
 **Deployment**: Render + Gunicorn
 **Version Control**: Git & GitHub
