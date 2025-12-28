@@ -33,25 +33,25 @@ The system supports authenticated access, real-time stock updates, and maintains
 
 
 ## Setup Instructions (Local Development)
-### 1️1. Clone the Repository
+### 1. Clone the Repository
 git clone https://github.com/lakshyadas13/chemical-inventory-system.git  
 cd chemical-inventory-system
 
-### 2️2. Create and Activate Virtual Environment
+### 2. Create and Activate Virtual Environment
 python3 -m venv venv  
 source venv/bin/activate   # macOS / Linux
 
-### 3️3. Install Dependencies
+### 3. Install Dependencies
 pip install -r requirements.txt
 
-### 4️4. Database Configuration
+### 4. Database Configuration
 - Ensure MySQL is running locally  
 - Update credentials if required
 - Tables are created automatically at application startup
   with app.app_context():
   db.create_all()
 
-### 5️5. Run the Application
+### 5. Run the Application
 python app.py  
 Access the application at:  
 http://127.0.0.1:5000
@@ -68,7 +68,7 @@ SQLALCHEMY_DATABASE_URI = os.environ.get(
 
 
 ## Database Models / Tables
-### 1️1. User
+### 1. User
 Stores administrator login credentials.
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -79,7 +79,7 @@ Handles authentication
 Supports future extension for multiple admin users
 
 
-### 2️2. Product
+### 2. Product
 Stores chemical product details.
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -93,7 +93,7 @@ Enforces unique CAS numbers
 Tracks current stock levels
 
 
-### 3️3. StockMovement
+### 3. StockMovement
 Logs every stock update operation.
 class StockMovement(db.Model):
     id = db.Column(db.Integer, primary_key=True)
