@@ -196,6 +196,7 @@ def seed_user():
 
     return "Admin user created"
 
+
 @app.route("/seed")
 def seed():
     if Product.query.first():
@@ -213,6 +214,7 @@ def seed():
 
     db.session.bulk_save_objects(products)
     db.session.commit()
+
 
     return "Sample data added"
 
