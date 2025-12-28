@@ -4,7 +4,7 @@ https://chemical-inventory-system.onrender.com
 
 
 ## Overview
-**chemflotory**, The Chemical Inventory Management System is a web-based application developed using Flask and SQLAlchemy to manage chemical products, track stock movements, and ensure inventory safety.
+**chemflotory**, the Chemical Inventory Management System is a web-based application developed using Flask and SQLAlchemy to manage chemical products, track stock movements, and ensure inventory safety.
 The system supports authenticated access, real-time stock updates, and maintains a detailed audit trail of inventory changes. It is designed as a functional MVP suitable for academic and internship-level evaluation.
 
 
