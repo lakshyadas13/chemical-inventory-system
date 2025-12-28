@@ -65,7 +65,7 @@ SQLALCHEMY_DATABASE_URI = os.environ.get(
     "DATABASE_URL",
     "sqlite:///inventory.db"
 )
-🗄️ Database Models / Tables
+## Database Models / Tables
 ### 1️⃣ User
 Stores administrator login credentials.
 class User(db.Model):
