@@ -34,37 +34,39 @@ The system supports authenticated access, real-time stock updates, and maintains
 
 ## Setup Instructions (Local Development)
 ### 1️⃣ Clone the Repository
-git clone https://github.com/lakshyadas13/chemical-inventory-system.git
+git clone https://github.com/lakshyadas13/chemical-inventory-system.git  
 cd chemical-inventory-system
 
 ### 2️⃣ Create and Activate Virtual Environment
-python3 -m venv venv
+python3 -m venv venv  
 source venv/bin/activate   # macOS / Linux
 
 ### 3️⃣ Install Dependencies
 pip install -r requirements.txt
 
 ### 4️⃣ Database Configuration
-Ensure MySQL is running locally
-Update credentials if required
-Tables are created automatically at application startup
-with app.app_context():
-    db.create_all()
+- Ensure MySQL is running locally  
+- Update credentials if required
+- Tables are created automatically at application startup
+  with app.app_context():
+  db.create_all()
 
 ### 5️⃣ Run the Application
-python app.py
-Access the application at:
+python app.py  
+Access the application at:  
 http://127.0.0.1:5000
 
 
 ##  Deployment Details
 The application is deployed on Render using Gunicorn
 SQLite is used as a fallback database for free cloud deployment
-The database is selected dynamically using environment variables
+The database is selected dynamically using environment variables  
 SQLALCHEMY_DATABASE_URI = os.environ.get(
     "DATABASE_URL",
     "sqlite:///inventory.db"
 )
+
+
 ## Database Models / Tables
 ### 1️⃣ User
 Stores administrator login credentials.
@@ -72,9 +74,11 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
-Purpose:
+#### Purpose:
 Handles authentication
 Supports future extension for multiple admin users
+
+
 ### 2️⃣ Product
 Stores chemical product details.
 class Product(db.Model):
@@ -83,10 +87,12 @@ class Product(db.Model):
     cas_number = db.Column(db.String(50), unique=True, nullable=False)
     unit = db.Column(db.String(20), nullable=False)
     stock = db.Column(db.Float, default=0)
-Purpose:
+#### Purpose:
 Maintains inventory data
 Enforces unique CAS numbers
 Tracks current stock levels
+
+
 ### 3️⃣ StockMovement
 Logs every stock update operation.
 class StockMovement(db.Model):
@@ -95,7 +101,7 @@ class StockMovement(db.Model):
     action = db.Column(db.String(10))  # IN or OUT
     quantity = db.Column(db.Float)
     timestamp = db.Column(db.DateTime)
-Purpose:
+#### Purpose:
 Records inventory changes
 Enables auditability and traceability
 Supports historical analysis
@@ -107,11 +113,11 @@ Supports historical analysis
 
 
 ## Future Enhancements
-Role-based access control (Admin / Viewer)
-Password hashing and improved security
-Persistent managed cloud database
-Inventory analytics dashboard
-Export reports (CSV / PDF)
+- Role-based access control (Admin / Viewer)
+- Password hashing and improved security
+- Persistent managed cloud database
+- Inventory analytics dashboard
+- Export reports (CSV / PDF)
 
 
 # Author
