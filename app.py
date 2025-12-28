@@ -182,6 +182,15 @@ def logout():
     session.clear()
     return redirect(url_for("login"))
 
+@app.route("/seed-user")
+def seed_user():
+    if User.query.filter_by(username="admin").first():
+        return "Admin user already exists"
+
+    admin = User(username="admin", password="admin123")
+    db.session.add(admin)
+    db.session.commit()
+    return "Admin user created"
 
 #  RUN APP 
 if __name__ == "__main__":
