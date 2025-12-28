@@ -204,23 +204,26 @@ def seed_demo():
         )
         db.session.add(admin)
 
-    # Seed products only if empty
-    if not Product.query.first():
-        products = [
-            Product(name="Ethanol", cas_number="64-17-5", unit="Litre", stock=50),
-            Product(name="Acetone", cas_number="67-64-1", unit="Litre", stock=30),
-            Product(name="Methanol", cas_number="67-56-1", unit="Litre", stock=40),
-            Product(name="Sodium Hydroxide", cas_number="1310-73-2", unit="KG", stock=3),
-            Product(name="Hydrochloric Acid", cas_number="7647-01-0", unit="Litre", stock=25),
-            Product(name="Sulfuric Acid", cas_number="7664-93-9", unit="Litre", stock=15),
-            Product(name="Ammonia", cas_number="7664-41-7", unit="KG", stock=2),
-            Product(name="Potassium Permanganate", cas_number="7722-64-7", unit="KG", stock=5),
-            Product(name="Acetic Acid", cas_number="64-19-7", unit="Litre", stock=20),
-        ]
-        db.session.bulk_save_objects(products)
+    @app.route("/seed")
+def seed():
+    if Product.query.first():
+        return "Data already exists"
 
+    products = [
+        Product(name="Ethanol", cas_number="64-17-5", unit="Litre", stock=50),
+        Product(name="Acetone", cas_number="67-64-1", unit="Litre", stock=30),
+        Product(name="Methanol", cas_number="67-56-1", unit="Litre", stock=40),
+        Product(name="Sodium Hydroxide", cas_number="1310-73-2", unit="KG", stock=3),
+        Product(name="Hydrochloric Acid", cas_number="7647-01-0", unit="Litre", stock=25),
+        Product(name="Sulfuric Acid", cas_number="7664-93-9", unit="Litre", stock=15),
+        Product(name="Ammonia", cas_number="7664-41-7", unit="KG", stock=2),
+    ]
+
+    db.session.bulk_save_objects(products)
     db.session.commit()
-    return "Demo admin user and sample products created"
+
+    return "Sample data added"
+
 
 
 #  RUN APP 
